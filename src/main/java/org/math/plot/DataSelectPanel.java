@@ -787,13 +787,13 @@ public class DataSelectPanel extends JPanel {
                 System.err.println("plotting ...");
                 if (pp.getPlots().size() == 0) {
                     System.err.println("   new");
-                    pp.addPlot("SCATTER", "data", pp.mapData(getSelectedProjectedData()));
+                    pp.addPlot(PlotPanel.Type.SCATTER, "data", pp.mapData(getSelectedProjectedData()));
                 } else {
                     System.err.println(" existing");
                     if (from != null && from.endsWith("axis")) {
                         pp.resetMapData();
                         pp.removeAllPlots();
-                        pp.addPlot("SCATTER", "data", pp.mapData(getSelectedProjectedData()));
+                        pp.addPlot(PlotPanel.Type.SCATTER, "data", pp.mapData(getSelectedProjectedData()));
                     } else {
                         pp.getPlot(0).setData(pp.mapData(getSelectedProjectedData()));
                     }
@@ -815,7 +815,7 @@ public class DataSelectPanel extends JPanel {
         } catch (InterruptedException e) {
         e.printStackTrace();
         }
-        
+
         Object[][] data2 = { { 0, 0, 0, 0, "a0" }, { 1, 1, 1, 1, "a1" }, { 2, 2, 2, 2, "a2" }, { 3, 3, 3, 3, "a3" }, { 4, 3, 3, 3, "a3" },
         { 5, 3, 3, 3, "a4" }, { 5, 4, 3, 3, "a4" } };
         dsp.setData(data2);*/
